@@ -102,8 +102,8 @@ var map = new ol.Map({
 });
 
     var searchLayer = new ol.SearchLayer({
-      layer: lyr_Regiones,
-      colName: 'NOM_MUN',
+      layer: lyr_LocalidadesUrbanas,
+      colName: 'NOMLOC',
       zoom: 10,
       collapsed: true,
       map: map

@@ -323,7 +323,7 @@ var onSingleClick = function(evt) {
     }
 };
 
-    map.on('pointermove', function(evt) {
+    map.on('singleclick', function(evt) {
         if (evt.dragging) {
             return;
         }
@@ -343,13 +343,13 @@ var onSingleClick = function(evt) {
         }
     });
     
-
-map.on('pointermove', function(evt) {
-    onPointerMove(evt);
-});
 map.on('singleclick', function(evt) {
     onSingleClick(evt);
 });
+map.on('pointermove', function(evt) {
+    onPointerMove(evt);
+});
+
 
 /**
  * Currently drawn feature.

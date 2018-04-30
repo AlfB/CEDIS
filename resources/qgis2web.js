@@ -94,14 +94,14 @@ var map = new ol.Map({
     overlays: [overlayPopup],
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1
+         maxZoom: 26, minZoom: 4
     })
 });
 
     var searchLayer = new ol.SearchLayer({
       layer: lyr_Regiones,
       colName: 'NOM_MUN',
-      zoom: 10,
+      zoom: 8,
       collapsed: true,
       map: map
     });

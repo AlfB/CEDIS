@@ -148,12 +148,8 @@ var featureOverlay = new ol.layer.Vector({
     updateWhileInteracting: true // optional, for instant visual feedback
 });
 
-var doHighlight = true;
-var doHover = true;
-
-var highlight;
 var onPointerMove = function(evt) {
-    if (!doHover && !doHighlight) {
+    if (doHover) {
         return;
     }
     var pixel = map.getEventPixel(evt.originalEvent);
@@ -161,26 +157,9 @@ var onPointerMove = function(evt) {
     var popupField;
     var popupText = '';
     var currentFeature;
-    var currentLayer;
     var currentFeatureKeys;
     map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-        // We only care about features from layers in the layersList, ignore
-        // any other layers which the map might contain such as the vector
-        // layer used by the measure tool
-        if (layersList.indexOf(layer) === -1) {
-            return;
-        }
-	
-		 /*var info = document.getElementById('info');
-        if (feature, layer) {
-          info.innerHTML =  'Clave de Municipio: ' + feature.get('CLAVEMUN') + ', Nombre Municipio: ' + feature.get('NOM_MUN') + 
-		  ', Beneficiarios Municipio: ' + feature.get('TOTAL_MUN') + ', Región: ' + feature.get('REGION') + ', Beneficiarios Region: ' + feature.get('TOTAL_REG');
-        } else {
-          info.innerHTML = '&nbsp;';
-        }*/
-		
         currentFeature = feature;
-        currentLayer = layer;
         currentFeatureKeys = currentFeature.getKeys();
         var doPopup = false;
         for (k in layer.get('fieldImages')) {
@@ -188,7 +167,6 @@ var onPointerMove = function(evt) {
                 doPopup = true;
             }
         }
-		
         if (doPopup) {
             popupText = '<table>';
             for (var i=0; i<currentFeatureKeys.length; i++) {
@@ -211,6 +189,76 @@ var onPointerMove = function(evt) {
                 }
             }
             popupText = popupText + '</table>';
+        }
+    });
+
+    if (popupText) {
+        overlayPopup.setPosition(coord);
+        content.innerHTML = popupText;
+        container.style.display = 'block';        
+    } else {
+        container.style.display = 'none';
+        closer.blur();
+    }
+};
+
+var doHighlight = true;
+var doActive = true;
+
+var highlight;
+var onSingleClick = function(evt) {
+    if (!doActive && !doHighlight) {
+        return;
+    }
+    var pixel = map.getEventPixel(evt.originalEvent);
+    var coord = evt.coordinate;
+    var popupField;
+    var popupText = '';
+    var currentFeature;
+    var currentLayer;
+    var currentFeatureKeys;
+    map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+        // We only care about features from layers in the layersList, ignore
+        // any other layers which the map might contain such as the vector
+        // layer used by the measure tool
+        if (layersList.indexOf(layer) === -1) {
+            return;
+        }
+	
+		
+        currentFeature = feature;
+        currentLayer = layer;
+        currentFeatureKeys = currentFeature.getKeys();
+        var doPopup = false;
+        for (k in layer.get('fieldImages')) {
+            if (layer.get('fieldImages')[k] != "Hidden") {
+                doPopup = false;
+            }
+        }
+		
+        if (doPopup == false) {
+            popupText = '<table>';
+            for (var i=0; i<currentFeatureKeys.length; i++) {
+                if (currentFeatureKeys[i] != 'geometry') {
+                    popupField = '';
+                    if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "inline label") {
+                        popupField += '<th>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</th><td>';
+                    } else {
+                        popupField += '<td colspan="2">';
+                    }
+                    if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
+                        popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
+                    }
+                    if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
+                        popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(currentFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
+                    } else {
+                        popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + currentFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
+                    }
+                    popupText = popupText + '<tr>' + popupField + '</tr>';
+                }
+            }
+			document.getElementById("info").innerHTML = popupText + '</table>';
+            /*popupText = popupText + '</table>';*/
         }
     });
 
@@ -274,61 +322,6 @@ var onPointerMove = function(evt) {
         }
     }
 };
-
-var onSingleClick = function(evt) {
-    if (doHover) {
-        return;
-    }
-    var pixel = map.getEventPixel(evt.originalEvent);
-    var coord = evt.coordinate;
-    var popupField;
-    var popupText = '';
-    var currentFeature;
-    var currentFeatureKeys;
-    map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-        currentFeature = feature;
-        currentFeatureKeys = currentFeature.getKeys();
-        var doPopup = false;
-        for (k in layer.get('fieldImages')) {
-            if (layer.get('fieldImages')[k] != "Hidden") {
-                doPopup = true;
-            }
-        }
-        if (doPopup) {
-            popupText = '<table>';
-            for (var i=0; i<currentFeatureKeys.length; i++) {
-                if (currentFeatureKeys[i] != 'geometry') {
-                    popupField = '';
-                    if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "inline label") {
-                        popupField += '<th>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</th><td>';
-                    } else {
-                        popupField += '<td colspan="2">';
-                    }
-                    if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "header label") {
-                        popupField += '<strong>' + layer.get('fieldAliases')[currentFeatureKeys[i]] + ':</strong><br />';
-                    }
-                    if (layer.get('fieldImages')[currentFeatureKeys[i]] != "Photo") {
-                        popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? Autolinker.link(String(currentFeature.get(currentFeatureKeys[i]))) + '</td>' : '');
-                    } else {
-                        popupField += (currentFeature.get(currentFeatureKeys[i]) != null ? '<img src="images/' + currentFeature.get(currentFeatureKeys[i]).replace(/[\\\/:]/g, '_').trim()  + '" /></td>' : '');
-                    }
-                    popupText = popupText + '<tr>' + popupField + '</tr>';
-                }
-            }
-            popupText = popupText + '</table>';
-        }
-    });
-
-    if (popupText) {
-        overlayPopup.setPosition(coord);
-        content.innerHTML = popupText;
-        container.style.display = 'block';        
-    } else {
-        container.style.display = 'none';
-        closer.blur();
-    }
-};
-
 
     map.on('pointermove', function(evt) {
         if (evt.dragging) {

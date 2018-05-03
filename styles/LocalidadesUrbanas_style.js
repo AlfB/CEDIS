@@ -5,7 +5,7 @@ var style_LocalidadesUrbanas = function(feature, resolution){
     var value = ""
     var size = 0;
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(0,0,0,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}), fill: new ol.style.Fill({color: 'rgba(241,108,12,0.5)'})
+        stroke: new ol.style.Stroke({color: 'rgba(241,108,12,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 2.5}), fill: new ol.style.Fill({color: 'rgba(241,108,12,0.5)'})
     })];
     if ("" !== null) {
         var labelText = String("");

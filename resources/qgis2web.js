@@ -237,7 +237,7 @@ var onSingleClick = function(evt) {
         }
 		
         if (doPopup == false) {
-            popupText = '<table>';
+            popupText = '<div class="row"> <div class="col-sm-3"></div><div class="col-sm-6"><table class="table table-condensed">';
             for (var i=0; i<currentFeatureKeys.length; i++) {
                 if (currentFeatureKeys[i] != 'geometry') {
                     popupField = '';
@@ -257,7 +257,7 @@ var onSingleClick = function(evt) {
                     popupText = popupText + '<tr>' + popupField + '</tr>';
                 }
             }
-			document.getElementById("info").innerHTML = popupText + '</table>';
+			document.getElementById("info").innerHTML = popupText + '</table></div></div>';
             /*popupText = popupText + '</table>';*/
         }
     });

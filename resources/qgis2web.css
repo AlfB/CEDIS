@@ -6,16 +6,6 @@ html, body {
     font-size: small;
 }
 
-th, td {
-	width: 50%;
-    vertical-align: top;
-    text-align: left;
-	border: 1px solid #000;
-	border-collapse: separate;
-	padding: 0.3em;
-	caption-side: bottom;
-}
-
 #map {
     width: 90%;
     height: 90%;

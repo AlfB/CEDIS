@@ -203,11 +203,11 @@ var onPointerMove = function(evt) {
 };
 
 var doHighlight = true;
-var doActive = true;
+var doHover = true;
 
 var highlight;
 var onSingleClick = function(evt) {
-    if (!doActive && !doHighlight) {
+    if (!doHover && !doHighlight) {
         return;
     }
     var pixel = map.getEventPixel(evt.originalEvent);
@@ -311,7 +311,7 @@ var onSingleClick = function(evt) {
         }
     }
 
-    if (doHover) {
+   /* if (doHover) {
         if (popupText) {
             overlayPopup.setPosition(coord);
             content.innerHTML = popupText;
@@ -320,10 +320,10 @@ var onSingleClick = function(evt) {
             container.style.display = 'none';
             closer.blur();
         }
-    }
+    }*/
 };
 
-    map.on('singleclick', function(evt) {
+    map.on('pointermove', function(evt) {
         if (evt.dragging) {
             return;
         }
@@ -343,13 +343,13 @@ var onSingleClick = function(evt) {
         }
     });
     
-map.on('singleclick', function(evt) {
-    onSingleClick(evt);
-});
+
 map.on('pointermove', function(evt) {
     onPointerMove(evt);
 });
-
+map.on('singleclick', function(evt) {
+    onSingleClick(evt);
+});
 
 /**
  * Currently drawn feature.
@@ -406,13 +406,13 @@ var measureLayer = new ol.layer.Vector({
             color: 'rgba(255, 255, 255, 0.2)'
         }),
         stroke: new ol.style.Stroke({
-            color: '#ffcc33',
+            color: '#3BAF09',
             width: 3
         }),
         image: new ol.style.Circle({
             radius: 7,
             fill: new ol.style.Fill({
-                color: '#ffcc33'
+                color: '#3BAF09'
             })
         })
     })

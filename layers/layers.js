@@ -19,7 +19,56 @@ new ol.layer.Tile({
 })
 ]
 });
-var format_CEDIS = new ol.format.GeoJSON();
+
+var lyr_CEDIS_5km = new ol.layer.Image({
+                            opacity: 1,
+                            title: "CEDIS_5km",
+                            
+                            
+                            source: new ol.source.ImageStatic({
+                               url: "./layers/CEDIS_5km.png",
+                                projection: 'EPSG:3857',
+                                alwaysInRange: true,
+                                //imageSize: [472, 500],
+                                imageExtent: [-11184482.798400, 2079152.385694, -10983152.599141, 2305156.468612]
+                            })
+                        });var lyr_CEDIS_10km = new ol.layer.Image({
+                            opacity: 1,
+                            title: "CEDIS_10km",
+                            
+                            
+                            source: new ol.source.ImageStatic({
+                               url: "./layers/CEDIS_10km.png",
+                                projection: 'EPSG:3857',
+                                alwaysInRange: true,
+                                //imageSize: [474, 500],
+                                imageExtent: [-11189516.490752, 2073849.560878, -10977770.190716, 2310544.804374]
+                            })
+                        });var lyr_CEDIS_15km = new ol.layer.Image({
+                            opacity: 1,
+                            title: "CEDIS_15km",
+                            
+                            
+                            source: new ol.source.ImageStatic({
+                               url: "./layers/CEDIS_15km.png",
+                                projection: 'EPSG:3857',
+                                alwaysInRange: true,
+                                //imageSize: [475, 500],
+                                imageExtent: [-11194550.183104, 2068548.120752, -10972773.979084, 2315934.721118]
+                            })
+                        });var lyr_CEDIS_20km = new ol.layer.Image({
+                            opacity: 1,
+                            title: "CEDIS_20km",
+                            
+                            
+                            source: new ol.source.ImageStatic({
+                               url: "./layers/CEDIS_20km.png",
+                                projection: 'EPSG:3857',
+                                alwaysInRange: true,
+                                //imageSize: [476, 500],
+                                imageExtent: [-11199583.875455, 2063248.061292, -10967737.417213, 2321326.223156]
+                            })
+                        });var format_CEDIS = new ol.format.GeoJSON();
 var features_CEDIS = format_CEDIS.readFeatures(geojson_CEDIS, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
 var jsonSource_CEDIS = new ol.source.Vector();
@@ -61,8 +110,8 @@ jsonSource_Regiones.addFeatures(features_Regiones);var lyr_Regiones = new ol.lay
                 title: "Regiones"
             });
 
-lyr_CEDIS.setVisible(false);lyr_AGEBS.setVisible(false);lyr_LocalidadesRurales.setVisible(false);lyr_LocalidadesUrbanas.setVisible(false);lyr_Regiones.setVisible(true);
-var layersList = [baseLayer,lyr_CEDIS,lyr_AGEBS,lyr_LocalidadesRurales,lyr_LocalidadesUrbanas,lyr_Regiones];
+lyr_CEDIS_5km.setVisible(false);lyr_CEDIS_10km.setVisible(false);lyr_CEDIS_15km.setVisible(false);lyr_CEDIS_20km.setVisible(false);lyr_CEDIS.setVisible(false);lyr_AGEBS.setVisible(false);lyr_LocalidadesRurales.setVisible(false);lyr_LocalidadesUrbanas.setVisible(false);lyr_Regiones.setVisible(true);
+var layersList = [baseLayer,lyr_CEDIS_5km,lyr_CEDIS_10km,lyr_CEDIS_15km,lyr_CEDIS_20km,lyr_CEDIS,lyr_AGEBS,lyr_LocalidadesRurales,lyr_LocalidadesUrbanas,lyr_Regiones];
 lyr_CEDIS.set('fieldAliases', {'GID': 'GID', 'REGION': 'REGION', 'CVE_MUNICIPIO': 'CVE_MUNICIPIO', 'CVE_CEDIS': 'CVE_CEDIS', 'MUNICIPIO': 'MUNICIPIO', 'CEDIS': 'CEDIS', 'DOMICILIO': 'DOMICILIO', 'TELEFONO': 'TELEFONO', 'LATITUD': 'LATITUD', 'LONGITUD': 'LONGITUD', });
 lyr_AGEBS.set('fieldAliases', {'CVE_ENT': 'CVE_ENT', 'CVE_LOC': 'CVE_LOC', 'CVE_MUN': 'CVE_MUN', 'CVE_AGEB': 'CVE_AGEB', });
 lyr_LocalidadesRurales.set('fieldAliases', {'CVE_ENT': 'CVE_ENT', 'CVE_MUN': 'CVE_MUN', 'CVE_LOC': 'CVE_LOC', 'NOM_LOC': 'NOM_LOC', 'CLAVE_LOC': 'CLAVE_LOC', });

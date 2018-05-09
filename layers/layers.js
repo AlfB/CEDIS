@@ -21,7 +21,7 @@ new ol.layer.Tile({
 });
 
 var lyr_CEDIS_5km = new ol.layer.Image({
-                            opacity: 1,
+                            opacity: 0.8,
                             title: "CEDIS_5km",
                             
                             
@@ -33,7 +33,7 @@ var lyr_CEDIS_5km = new ol.layer.Image({
                                 imageExtent: [-11184482.798400, 2079152.385694, -10983152.599141, 2305156.468612]
                             })
                         });var lyr_CEDIS_10km = new ol.layer.Image({
-                            opacity: 1,
+                            opacity: 0.8,
                             title: "CEDIS_10km",
                             
                             
@@ -45,7 +45,7 @@ var lyr_CEDIS_5km = new ol.layer.Image({
                                 imageExtent: [-11189516.490752, 2073849.560878, -10977770.190716, 2310544.804374]
                             })
                         });var lyr_CEDIS_15km = new ol.layer.Image({
-                            opacity: 1,
+                            opacity: 0.8,
                             title: "CEDIS_15km",
                             
                             
@@ -57,7 +57,7 @@ var lyr_CEDIS_5km = new ol.layer.Image({
                                 imageExtent: [-11194550.183104, 2068548.120752, -10972773.979084, 2315934.721118]
                             })
                         });var lyr_CEDIS_20km = new ol.layer.Image({
-                            opacity: 1,
+                            opacity: 0.8,
                             title: "CEDIS_20km",
                             
                             

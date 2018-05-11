@@ -540,7 +540,7 @@ var formatLength = function(line) {
 addInteraction();
 
 
-      var geolocation = new ol.Geolocation({
+     var geolocation = new ol.Geolocation({
   projection: map.getView().getProjection()
 });
 

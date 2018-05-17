@@ -75,7 +75,7 @@ var jsonSource_CEDIS = new ol.source.Vector();
 jsonSource_CEDIS.addFeatures(features_CEDIS);var lyr_CEDIS = new ol.layer.Vector({
                 source:jsonSource_CEDIS, 
                 style: style_CEDIS,
-                title: "CEDIS"
+                title: '<img src="styles/legend/icon-home.png" /> CEDIS'
             });var format_AGEBS = new ol.format.GeoJSON();
 var features_AGEBS = format_AGEBS.readFeatures(geojson_AGEBS, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -83,7 +83,7 @@ var jsonSource_AGEBS = new ol.source.Vector();
 jsonSource_AGEBS.addFeatures(features_AGEBS);var lyr_AGEBS = new ol.layer.Vector({
                 source:jsonSource_AGEBS, 
                 style: style_AGEBS,
-                title: "AGEBS"
+                title: '<img src="styles/legend/AGEBS_EDOMEX_3.png" /> AGEBS_EDOMEX'
             });var format_LocalidadesRurales = new ol.format.GeoJSON();
 var features_LocalidadesRurales = format_LocalidadesRurales.readFeatures(geojson_LocalidadesRurales, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -91,7 +91,7 @@ var jsonSource_LocalidadesRurales = new ol.source.Vector();
 jsonSource_LocalidadesRurales.addFeatures(features_LocalidadesRurales);var lyr_LocalidadesRurales = new ol.layer.Vector({
                 source:jsonSource_LocalidadesRurales, 
                 style: style_LocalidadesRurales,
-                title: "Localidades Rurales"
+                title: '<img src="styles/legend/loc_rurales_2.png" /> loc_rurales'
             });var format_LocalidadesUrbanas = new ol.format.GeoJSON();
 var features_LocalidadesUrbanas = format_LocalidadesUrbanas.readFeatures(geojson_LocalidadesUrbanas, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -99,7 +99,7 @@ var jsonSource_LocalidadesUrbanas = new ol.source.Vector();
 jsonSource_LocalidadesUrbanas.addFeatures(features_LocalidadesUrbanas);var lyr_LocalidadesUrbanas = new ol.layer.Vector({
                 source:jsonSource_LocalidadesUrbanas, 
                 style: style_LocalidadesUrbanas,
-                title: "Localidades Urbanas"
+                title: '<img src="styles/legend/loc_urbanas_1.png" /> Localidades Urbanas'
             });var format_Regiones = new ol.format.GeoJSON();
 var features_Regiones = format_Regiones.readFeatures(geojson_Regiones, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -107,7 +107,27 @@ var jsonSource_Regiones = new ol.source.Vector();
 jsonSource_Regiones.addFeatures(features_Regiones);var lyr_Regiones = new ol.layer.Vector({
                 source:jsonSource_Regiones, 
                 style: style_Regiones,
-                title: "Regiones"
+                title: 'Regiones<br />\
+    <img src="styles/legend/reg_mun_3_0_0.png" /> AMECAMECA<br />\
+    <img src="styles/legend/reg_mun_3_0_1.png" /> ATLACOMULCO<br />\
+    <img src="styles/legend/reg_mun_3_0_2.png" /> CHIMALHUACAN<br />\
+    <img src="styles/legend/reg_mun_3_0_3.png" /> CUAUTITLAN IZCALLI<br />\
+    <img src="styles/legend/reg_mun_3_0_4.png" /> ECATEPEC<br />\
+    <img src="styles/legend/reg_mun_3_0_5.png" /> IXTLAHUACA<br />\
+    <img src="styles/legend/reg_mun_3_0_6.png" /> LERMA<br />\
+    <img src="styles/legend/reg_mun_3_0_7.png" /> METEPEC<br />\
+    <img src="styles/legend/reg_mun_3_0_8.png" /> NAUCALPAN<br />\
+    <img src="styles/legend/reg_mun_3_0_9.png" /> NEZAHUALCOYOTL<br />\
+    <img src="styles/legend/reg_mun_3_0_10.png" /> OTUMBA<br />\
+    <img src="styles/legend/reg_mun_3_0_11.png" /> TEJUPILCO<br />\
+    <img src="styles/legend/reg_mun_3_0_12.png" /> TENANCINGO<br />\
+    <img src="styles/legend/reg_mun_3_0_13.png" /> TEPOTZOTLAN<br />\
+    <img src="styles/legend/reg_mun_3_0_14.png" /> TEXCOCO<br />\
+    <img src="styles/legend/reg_mun_3_0_15.png" /> TLALNEPANTLA<br />\
+    <img src="styles/legend/reg_mun_3_0_16.png" /> TOLUCA<br />\
+    <img src="styles/legend/reg_mun_3_0_17.png" /> TULTITLAN<br />\
+    <img src="styles/legend/reg_mun_3_0_18.png" /> VALLE DE BRAVO<br />\
+    <img src="styles/legend/reg_mun_3_0_19.png" /> ZUMPANGO<br />'			
             });var format_Municipios = new ol.format.GeoJSON();
 var features_Municipios = format_Municipios.readFeatures(geojson_Municipios, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});

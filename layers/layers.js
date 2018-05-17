@@ -83,7 +83,7 @@ var jsonSource_AGEBS = new ol.source.Vector();
 jsonSource_AGEBS.addFeatures(features_AGEBS);var lyr_AGEBS = new ol.layer.Vector({
                 source:jsonSource_AGEBS, 
                 style: style_AGEBS,
-                title: '<img src="styles/legend/AGEBS_EDOMEX_3.png" /> AGEBS_EDOMEX'
+                title: '<img src="styles/legend/AGEBS_EDOMEX_3.png" /> AGEBS'
             });var format_LocalidadesRurales = new ol.format.GeoJSON();
 var features_LocalidadesRurales = format_LocalidadesRurales.readFeatures(geojson_LocalidadesRurales, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -91,7 +91,7 @@ var jsonSource_LocalidadesRurales = new ol.source.Vector();
 jsonSource_LocalidadesRurales.addFeatures(features_LocalidadesRurales);var lyr_LocalidadesRurales = new ol.layer.Vector({
                 source:jsonSource_LocalidadesRurales, 
                 style: style_LocalidadesRurales,
-                title: '<img src="styles/legend/loc_rurales_2.png" /> loc_rurales'
+                title: '<img src="styles/legend/loc_rurales_2.png" /> Localidades Rurales'
             });var format_LocalidadesUrbanas = new ol.format.GeoJSON();
 var features_LocalidadesUrbanas = format_LocalidadesUrbanas.readFeatures(geojson_LocalidadesUrbanas, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});

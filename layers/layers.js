@@ -136,14 +136,14 @@ jsonSource_Municipios.addFeatures(features_Municipios);var lyr_Municipios = new 
                 source:jsonSource_Municipios, 
                 style: style_Municipios,
                 title: "Municipios"
-            });
+            }); 
 
-var group_group2 = new ol.layer.Group({
+var group_group3 = new ol.layer.Group({
                                 layers: [lyr_CEDIS_5km,lyr_CEDIS_10km,lyr_CEDIS_15km,lyr_CEDIS_20km,lyr_Municipios],
                                 title: "Mapas de Calor"});
 			
 lyr_Municipios.setVisible(false);lyr_CEDIS_5km.setVisible(false);lyr_CEDIS_10km.setVisible(false);lyr_CEDIS_15km.setVisible(false);lyr_CEDIS_20km.setVisible(false);lyr_CEDIS.setVisible(false);lyr_AGEBS.setVisible(false);lyr_LocalidadesRurales.setVisible(false);lyr_LocalidadesUrbanas.setVisible(false);lyr_Regiones.setVisible(true);
-var layersList = [baseLayer,group_group2,lyr_CEDIS,lyr_AGEBS,lyr_LocalidadesRurales,lyr_LocalidadesUrbanas,lyr_Regiones];
+var layersList = [baseLayer,group_group3,lyr_CEDIS,lyr_AGEBS,lyr_LocalidadesRurales,lyr_LocalidadesUrbanas,lyr_Regiones];
 lyr_CEDIS.set('fieldAliases', {'GID': 'GID', 'REGION': 'REGION', 'CVE_MUNICIPIO': 'CVE_MUNICIPIO', 'CVE_CEDIS': 'CVE_CEDIS', 'MUNICIPIO': 'MUNICIPIO', 'CEDIS': 'CEDIS', 'DOMICILIO': 'DOMICILIO', 'TELEFONO': 'TELEFONO', 'LATITUD': 'LATITUD', 'LONGITUD': 'LONGITUD', });
 lyr_AGEBS.set('fieldAliases', {'CVE_ENT': 'CVE_ENT', 'CVE_LOC': 'CVE_LOC', 'CVE_MUN': 'CVE_MUN', 'CVE_AGEB': 'CVE_AGEB', });
 lyr_LocalidadesRurales.set('fieldAliases', {'CVE_ENT': 'CVE_ENT', 'CVE_MUN': 'CVE_MUN', 'CVE_LOC': 'CVE_LOC', 'NOM_LOC': 'NOM_LOC', 'CLAVE_LOC': 'CLAVE_LOC', });

@@ -11,10 +11,10 @@ new ol.layer.Tile({
 	imagerySet: 'AerialWithLabels',
 	maxZoom: 19 
 					})
-                        }),
+                        }), 
 new ol.layer.Tile({
     'title': 'OSM',
-    'type': 'base',
+    'type': 'base', 
     source: new ol.source.OSM()
 })
 ]

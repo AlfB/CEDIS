@@ -88,6 +88,9 @@ var map = new ol.Map({
 					coordinateFormat: ol.coordinate.createStringXY(4),
                     projection: ('EPSG:3857','EPSG:4326')
                 }),
+				new ol.control.ZoomToExtent({
+			extent: ol.proj.transformExtent([-100.367298, 18.543204,  -98.978908, 20.048214 ], 'EPSG:4326', 'EPSG:3857')
+		}),
     ]),
     target: document.getElementById('map'),
     renderer: 'canvas',
